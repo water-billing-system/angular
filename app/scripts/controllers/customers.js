@@ -8,10 +8,10 @@
  * Controller of the playAngularApp
  */
 angular.module('playAngularApp')
-  .controller('CustomersCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('CustomersCtrl', function($location,$scope) {
+
+		$scope.searchCustomer = function() {
+			 $location.path('/customers/'+$scope.search);
+		};
+
+	});

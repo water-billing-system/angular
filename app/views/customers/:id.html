@@ -1,0 +1,55 @@
+<div class="form-group" ng-controller="CustomersCtrl">
+	<label for="customer">Customer NO</label>
+	<form ng-submit="searchCustomer()">
+	<div class="row">
+		<div class="col-md-10">
+			<input type="text" ng-model="search" placeholder="Ex. 02134565623" class="form-control" required>
+		</div>
+		<div class="col-md-2">
+			<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Search</button>
+		</div>
+	</div>
+	</form>
+</div>
+
+<div class="row" ng-controller="CustomersIdCtrl">
+	<div class="col-md-3">
+		<img src="images/profile.jpg" class="img img-thumbnail" alt="">
+	</div>
+	<div class="col-md-9">
+		<table class="table table-bordered">
+			<tr>
+				<td>Citizen NO</td>
+				<td>{{ customer.MERNIS_NO }}</td>
+			</tr>
+			<tr>
+				<td>Full Name</td>
+				<td>{{ customer.ADI }} {{ customer.SOYADI }}</td>
+			</tr>
+			<tr>
+				<td>Birthday</td>
+				<td>{{ customer.DOGUM_TARIHI }}</td>
+			</tr>
+			<tr>
+				<td>Place of Birth</td>
+				<td>{{ customer.DOGUM_YERI }}</td>
+			</tr>
+			<tr>
+				<td>Mother Name</td>
+				<td>{{ customer.ANNE_ADI }}</td>
+			</tr>
+			<tr>
+				<td>Father Name</td>
+				<td>{{ customer.BABA_ADI }}</td>
+			</tr>
+			<tr>
+				<td>Status of Service</td>
+				<td>{{ customer.KAPAMA_TURU }}</td>
+			</tr>
+			<tr>
+				<td>Closing Date</td>
+				<td>{{ customer.KAPAMA_TARIHI }}</td>
+			</tr>
+		</table>
+	</div>
+</div>

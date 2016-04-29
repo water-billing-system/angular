@@ -2,21 +2,20 @@
 
 /**
  * @ngdoc function
- * @name playAngularApp.controller:CustomersIdCtrl
+ * @name playAngularApp.controller:PaymentsIdCtrl
  * @description
- * # CustomersIdCtrl
+ * # PaymentsIdCtrl
  * Controller of the playAngularApp
  */
 angular.module('playAngularApp')
-	.controller('CustomersIdCtrl', function($http,$scope,$routeParams) {
-		
+	.controller('PaymentsIdCtrl', function($scope,$routeParams,$http) {
 		$scope.params = $routeParams;
 		console.log($scope.params);
 		$scope.customerId = $scope.params.customerId;
 
-		$http.get('http://localhost:9000/app/customers/'+ $scope.customerId )
+		$http.get('http://localhost:9000/app/payments/' + $scope.customerId + '?order=' + $scope.order)
 			.success(function(data) {
-				$scope.customer = data;
+				$scope.datas = data;
 				console.log(data);
 			});
 	});
