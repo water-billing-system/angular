@@ -12,7 +12,7 @@ angular.module('playAngularApp')
 		$scope.user = userFactory;
 
 		$scope.logout = function() {
-			$http.get('http://localhost:9000/app/logout')
+			$http.get('http://10.0.0.20:9000/app/logout')
 				.success(function(data) {
 					if (data.hasOwnProperty('success')) {
 						userFactory.email = '';
@@ -23,11 +23,11 @@ angular.module('playAngularApp')
 				});
 		};
 
-		$scope.$watch('user.email', function(newVal) {
+		$scope.$watch('user.full_name', function(newVal) {
 			if ($cookieStore.get('currentUser') === '') {
 				$scope.isLoggedIn = false;
 			} else {
-				$scope.email = newVal;
+				$scope.full_name = newVal;
 				$scope.isLoggedIn = true;
 			}
 		});

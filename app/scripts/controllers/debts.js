@@ -7,11 +7,11 @@
  * # DebtsCtrl
  * Controller of the playAngularApp
  */
-angular.module('playAngularApp')
-  .controller('DebtsCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+ angular.module('playAngularApp')
+ .controller('DebtsCtrl', function ($scope,$location) {
+ 	
+ 	$scope.searchCustomerDebts = function() {
+ 		$location.url('/debts/' + $scope.search + '?order='+$scope.order);
+ 	};
+
+ });

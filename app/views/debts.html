@@ -1,1 +1,23 @@
-<p>This is the debts view.</p>
+<div class="form-group" ng-controller="DebtsCtrl">
+	<label for="customer">Customer NO</label>
+	<form ng-submit="searchCustomerDebts()">
+	<div class="row">
+		<div class="col-md-6">
+			<input type="text" ng-model="search" placeholder="Ex. 02134565623" class="form-control" required>
+		</div>
+		<div class="col-md-4">
+			<select ng-model="order" class="form-control" required>
+				<option value="">Please Select</option>
+				<option value="lastMonth" selected=>Last Month</option>
+				<option value="lastSix" selected=>Last Three Months</option>
+				<option value="lastSix" selected=>Last Six Months</option>
+				<option value="lastYear" selected=>Last Year</option>
+				<option value="all" selected=>Last Year</option>
+			</select>
+		</div>
+		<div class="col-md-2">
+			<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-search"></i> Search</button>
+		</div>
+	</div>
+	</form>
+</div>

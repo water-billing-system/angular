@@ -13,10 +13,11 @@ angular.module('playAngularApp')
 		$scope.signup = function() {
 			var payload = {
 				email: $scope.email,
-				password: $scope.password
+				password: $scope.password,
+				full_name: $scope.full_name
 			};
 
-			$http.post('http://localhost:9000/app/signup', payload)
+			$http.post('http://10.0.0.20:9000/app/signup', payload)
 				.success(function(data) {
 					console.log(data);
 					if (data.hasOwnProperty('success')) {

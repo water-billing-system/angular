@@ -111,6 +111,11 @@ angular
         controller: 'PaymentsIdCtrl',
         controllerAs: 'payments/:id'
       })
+      .when('/debts/:id', {
+        templateUrl: 'views/debts/:id.html',
+        controller: 'DebtsIdCtrl',
+        controllerAs: 'debts/:id'
+      })
       .otherwise({
         redirectTo: '/login'
       });

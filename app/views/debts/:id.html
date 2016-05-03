@@ -1,6 +1,6 @@
-<div class="form-group" ng-controller="PaymentsCtrl">
+<div class="form-group" ng-controller="DebtsCtrl">
 	<label for="customer">Customer NO</label>
-	<form ng-submit="searchCustomerPayment()">
+	<form ng-submit="searchCustomerDebts()">
 		<div class="row">
 			<div class="col-md-6">
 				<input type="text" ng-model="search" placeholder="Ex. 02134565623" class="form-control" required>
@@ -23,7 +23,7 @@
 </div>
 
 
-<div class="row" ng-controller="PaymentsIdCtrl">
+<div class="row" ng-controller="DebtsIdCtrl">
 	<div class="col-md-3">
 		<img src="images/profile.jpg" class="img img-thumbnail" alt="">
 	</div>
@@ -65,20 +65,32 @@
 	</div>
 </div>
 
-<div class="row" ng-controller="PaymentsIdCtrl">
+<div class="row" ng-controller="DebtsIdCtrl">
 	<div class="col-md-12">
-	<legend>Payments</legend>
-	<table class="table table-bordered">
-		<tr>
-			<td>#</td>
-			<td style="width: 50%;">Debt</td>
-			<td>Payment Date</td>
-		</tr>
-		<tr ng-repeat="payment in datas.payments track by $index ">
-			<td>{{ $index + 1 }}</td>
-			<td><a href="/#/debts/{{ payment.debt_id }}">#{{ payment.debt_id }}</a></td>
-			<td>{{ payment.payment_date }}</td>
-		</tr>
-	</table>
+		<legend>Debts</legend>
+		<table class="table table-bordered">
+			<tr>
+				<td>#</td>
+				<td>Customer</td>
+				<td>Billed Date</td>
+				<td>Cost</td>
+				<td>Taxes</td>
+				<td>Status</td>
+				<td>Payment</td>
+			</tr>
+			<tr ng-repeat="debt in datas.debts track by $index ">
+				<td>{{ $index + 1 }}</td>
+				<td>
+					<a href="/#/customers/{{ debt.customer_id }}">#{{ debt.customer_id }}</a>
+				</td>
+				<td>{{ debt.billed_date }}</td>
+				<td>{{ debt.cost }}</td>
+				<td>{{ debt.taxes }}</td>
+				<td>{{ debt.status }}</td>
+				<td>
+					<a ng-if="debt.status" href="/#/payments/{{ debt.payment_id }}">#{{ debt.payment_id }}</a>
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
