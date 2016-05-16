@@ -15,7 +15,7 @@ angular.module('playAngularApp')
 				console.log(userFactory.email);
 				$location.path('/');
 			} else {
-				$http.get('http://10.0.0.20:9000/app/isauthenticated')
+				$http.get('http://192.168.1.46:9000/app/isauthenticated')
 					.error(function() {
 						$location.path('/login');
 					})
@@ -37,7 +37,7 @@ angular.module('playAngularApp')
 				password: this.password
 			};
 
-			$http.post('http://10.0.0.20:9000/app/login', payload)
+			$http.post('http://192.168.1.46:9000/app/login', payload)
 				.error(function(data, status) {
 					console.log("Login Error must be handled.");
 				})

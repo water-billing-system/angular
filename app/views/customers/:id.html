@@ -20,35 +20,35 @@
 		<table class="table table-bordered">
 			<tr>
 				<td>Citizen NO</td>
-				<td>{{ customer.MERNIS_NO }}</td>
+				<td>{{ customer.identity.citizen_no }}</td>
 			</tr>
 			<tr>
 				<td>Full Name</td>
-				<td>{{ customer.ADI }} {{ customer.SOYADI }}</td>
+				<td>{{ customer.identity.full_name }} </td>
 			</tr>
 			<tr>
 				<td>Birthday</td>
-				<td>{{ customer.DOGUM_TARIHI }}</td>
+				<td>{{ customer.identity.birthdate }}</td>
 			</tr>
 			<tr>
 				<td>Place of Birth</td>
-				<td>{{ customer.DOGUM_YERI }}</td>
+				<td>{{ customer.identity.place_of_birth }}</td>
 			</tr>
 			<tr>
 				<td>Mother Name</td>
-				<td>{{ customer.ANNE_ADI }}</td>
+				<td>{{ customer.identity.mother_name }}</td>
 			</tr>
 			<tr>
 				<td>Father Name</td>
-				<td>{{ customer.BABA_ADI }}</td>
+				<td>{{ customer.identity.father_name }}</td>
 			</tr>
 			<tr>
 				<td>Status of Service</td>
-				<td>{{ customer.KAPAMA_TURU }}</td>
+				<td>{{ customer.status }}</td>
 			</tr>
 			<tr>
 				<td>Closing Date</td>
-				<td>{{ customer.KAPAMA_TARIHI }}</td>
+				<td>{{ customer.closing_date }}</td>
 			</tr>
 		</table>
 	</div>

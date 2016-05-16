@@ -12,7 +12,7 @@ angular.module('playAngularApp')
 		$scope.user = userFactory;
 
 		$scope.logout = function() {
-			$http.get('http://10.0.0.20:9000/app/logout')
+			$http.get('http://192.168.1.46:9000/app/logout')
 				.success(function(data) {
 					if (data.hasOwnProperty('success')) {
 						userFactory.email = '';

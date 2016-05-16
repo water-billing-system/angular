@@ -1,0 +1,87 @@
+<div class="row" ng-controller="PaymentsDetailsIdCtrl">
+	<div class="col-md-3">
+		<img src="images/profile.jpg" class="img img-thumbnail" alt="">
+	</div>
+	<div class="col-md-9">
+		<table class="table table-bordered">
+			<tr>
+				<td>Citizen NO</td>
+				<td>{{ datas.customer.identity.citizen_no }}</td>
+			</tr>
+			<tr>
+				<td>Full Name</td>
+				<td>{{ datas.customer.identity.full_name }}</td>
+			</tr>
+			<tr>
+				<td>Birthdate</td>
+				<td>{{ datas.customer.identity.birthdate }}</td>
+			</tr>
+			<tr>
+				<td>Place of Birth</td>
+				<td>{{ datas.customer.identity.place_of_birth }}</td>
+			</tr>
+			<tr>
+				<td>Mother Name</td>
+				<td>{{ datas.customer.identity.mother_name }}</td>
+			</tr>
+			<tr>
+				<td>Father Name</td>
+				<td>{{ datas.customer.identity.father_name }}</td>
+			</tr>
+			<tr>
+				<td>Status of Service</td>
+				<td>{{ datas.customer.status }}</td>
+			</tr>
+			<tr ng-if="! datas.customer.status">
+				<td>Closing Date</td>
+				<td>{{ datas.customer.closing_date }}</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="row" ng-controller="PaymentsDetailsIdCtrl">
+	<div class="col-md-12">
+		<legend>Debt</legend>
+		<table class="table table-bordered">
+			<tr>
+				<td>Customer</td>
+				<td>Billed Date</td>
+				<td>Cost</td>
+				<td>Taxes</td>
+				<td>Paid</td>
+				<td>Payment</td>
+			</tr>
+			<tr>
+				<td>
+					<a href="/#/customers/{{ datas.debt.customer_id }}">#{{ datas.debt.customer_id }}</a>
+				</td>
+				<td>{{ datas.debt.billed_date }}</td>
+				<td>{{ datas.debt.cost }}</td>
+				<td>{{ datas.debt.taxes }}</td>
+				<td>{{ datas.debt.status }}</td>
+				<td>
+					<a ng-if="datas.debt.status" href="/#/payments/details/{{ datas.debt.payment_id }}">#{{ datas.debt.payment_id }}</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+  <div class="col-md-12">
+    <legend>Payment</legend>
+    <table class="table table-bordered">
+      <tr>
+        <td>Customer</td>
+        <td>Payment Date</td>
+      </tr>
+      <tr>
+        <td>
+          <a href="/#/customers/{{ datas.customer_id }}">#{{ datas.customer_id }}</a>
+        </td>
+        <td>{{ datas.payment_date }}</td>
+      </tr>
+    </table>
+  </div>
+
+
+</div>

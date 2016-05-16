@@ -76,7 +76,7 @@
 		</tr>
 		<tr ng-repeat="payment in datas.payments track by $index ">
 			<td>{{ $index + 1 }}</td>
-			<td><a href="/#/debts/{{ payment.debt_id }}">#{{ payment.debt_id }}</a></td>
+			<td><a href="/#/debts/details/{{ payment.debt_id }}">#{{ payment.debt_id }}</a></td>
 			<td>{{ payment.payment_date }}</td>
 		</tr>
 	</table>

@@ -13,7 +13,7 @@ angular.module('playAngularApp')
 		console.log($scope.params);
 		$scope.customerId = $scope.params.id;
 
-		$http.get('http://10.0.0.20:9000/app/customers/'+$scope.customerId+'/debts?order=' + $scope.order)
+		$http.get('http://192.168.1.46:9000/app/customers/'+$scope.customerId+'/debts?order=' + $scope.order)
 			.success(function(data) {
 				$scope.datas = data;	
 				console.log(data);
