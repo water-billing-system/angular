@@ -8,11 +8,11 @@
 			<div class="col-md-4">
 				<select ng-model="order" class="form-control" required>
 					<option value="">Please Select</option>
-					<option value="lastMonth" selected=>Last Month</option>
-					<option value="lastSix" selected=>Last Three Months</option>
-					<option value="lastSix" selected=>Last Six Months</option>
-					<option value="lastYear" selected=>Last Year</option>
-					<option value="all" selected=>All Time</option>
+					<option value="1" selected=>Last Month</option>
+					<option value="3" selected=>Last Three Months</option>
+					<option value="6" selected=>Last Six Months</option>
+					<option value="12" selected=>Last Year</option>
+					<option value="0" selected=>All Time</option>
 				</select>
 			</div>
 			<div class="col-md-2">
@@ -67,28 +67,22 @@
 
 <div class="row" ng-controller="DebtsIdCtrl">
 	<div class="col-md-12">
-		<legend>Debts</legend>
+		<legend>Payments</legend>
 		<table class="table table-bordered">
 			<tr>
 				<td>#</td>
-				<td>Customer</td>
 				<td>Billed Date</td>
 				<td>Cost</td>
 				<td>Taxes</td>
-				<td>Status</td>
-				<td>Payment</td>
+				<td>Pay</td>
 			</tr>
-			<tr ng-repeat="debt in datas.debts track by $index ">
+			<tr ng-repeat="debt in bills track by $index ">
 				<td>{{ $index + 1 }}</td>
-				<td>
-					<a href="/#/customers/{{ debt.customer_id }}">#{{ debt.customer_id }}</a>
-				</td>
 				<td>{{ debt.billed_date }}</td>
 				<td>{{ debt.cost }}</td>
 				<td>{{ debt.taxes }}</td>
-				<td>{{ debt.status }}</td>
-				<td>
-					<a ng-if="debt.status" href="/#/payments/details/{{ debt.payment_id }}">#{{ debt.payment_id }}</a>
+				<td style="width:10%">
+						<button class="btn btn-sm btn-primary" ng-controller="DebtsCtrl" ng-click="pay($index,debt.id)">Pay</button>
 				</td>
 			</tr>
 		</table>

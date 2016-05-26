@@ -8,11 +8,12 @@
  * Controller of the playAngularApp
  */
 angular.module('playAngularApp')
-	.controller('MenuCtrl', function($scope, $http, userFactory, $location, $rootScope, $cookieStore) {
+	.controller('MenuCtrl', function($scope, $http, userFactory, $location,
+		$rootScope, $cookieStore) {
 		$scope.user = userFactory;
 
 		$scope.logout = function() {
-			$http.get('http://192.168.1.46:9000/app/logout')
+			$http.get('http://192.168.1.46:9000/api/logout')
 				.success(function(data) {
 					if (data.hasOwnProperty('success')) {
 						userFactory.email = '';
@@ -34,7 +35,9 @@ angular.module('playAngularApp')
 
 		function ClearCredentials() {
 			$rootScope.currentUser = {};
-			$cookieStore.remove('currentUser');
+			$cookieStore.remove('email');
+			$cookieStore.remove('auth');
+			$cookieStore.remove('full_name');
 		}
 
 

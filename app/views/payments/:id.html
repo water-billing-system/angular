@@ -8,11 +8,11 @@
 			<div class="col-md-4">
 				<select ng-model="order" class="form-control" required>
 					<option value="">Please Select</option>
-					<option value="lastMonth" selected=>Last Month</option>
-					<option value="lastSix" selected=>Last Three Months</option>
-					<option value="lastSix" selected=>Last Six Months</option>
-					<option value="lastYear" selected=>Last Year</option>
-					<option value="all" selected=>All Time</option>
+					<option value="1" selected=>Last Month</option>
+					<option value="3" selected=>Last Three Months</option>
+					<option value="6" selected=>Last Six Months</option>
+					<option value="12" selected=>Last Year</option>
+					<option value="0" selected=>All Time</option>
 				</select>
 			</div>
 			<div class="col-md-2">
@@ -71,13 +71,15 @@
 	<table class="table table-bordered">
 		<tr>
 			<td>#</td>
-			<td style="width: 50%;">Debt</td>
-			<td>Payment Date</td>
+			<td>Billed Date</td>
+			<td>Cost</td>
+			<td>Taxes</td>
 		</tr>
-		<tr ng-repeat="payment in datas.payments track by $index ">
+		<tr ng-repeat="payment in datas.bills track by $index ">
 			<td>{{ $index + 1 }}</td>
-			<td><a href="/#/debts/details/{{ payment.debt_id }}">#{{ payment.debt_id }}</a></td>
-			<td>{{ payment.payment_date }}</td>
+			<td>{{ payment.billed_date }}</td>
+			<td>{{ payment.cost }}</td>
+			<td>{{ payment.taxes }}</td>
 		</tr>
 	</table>
 	</div>

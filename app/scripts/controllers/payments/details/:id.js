@@ -13,7 +13,7 @@ angular.module('playAngularApp')
     console.log($scope.params);
     $scope.id = $scope.params.id;
 
-    $http.get('http://192.168.1.46:9000/app/payments/' + $scope.id)
+    $http.get('http://192.168.1.46:9000/api/payments/' + $scope.id)
       .success(function(data) {
         $scope.datas = data;
         console.log(data);

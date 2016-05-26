@@ -72,10 +72,10 @@ angular
           }
         }
       })
-      .when('/statistics', {
-        templateUrl: 'views/statistics.html',
-        controller: 'StatisticsCtrl',
-        controllerAs: 'statistics',
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl',
+        controllerAs: 'settings',
         resolve: {
           auth: function($rootScope, $location) {
             if ($rootScope.unauthorized) {
@@ -106,12 +106,12 @@ angular
         controller: 'CustomersIdCtrl',
         controllerAs: 'customers/:id'
       })
-      .when('/payments/:customerId', {
+      .when('/payments/:customerId/:order', {
         templateUrl: 'views/payments/:id.html',
         controller: 'PaymentsIdCtrl',
         controllerAs: 'payments/:id'
       })
-      .when('/debts/:id', {
+      .when('/debts/:id/:order', {
         templateUrl: 'views/debts/:id.html',
         controller: 'DebtsIdCtrl',
         controllerAs: 'debts/:id'
@@ -133,12 +133,10 @@ angular
 
     $rootScope.unauthorized = true;
 
-    if (typeof $cookieStore.get('currentUser') != "undefined") {
-      userFactory.email = $cookieStore.get('currentUser').email
+    if (typeof $cookieStore.get('email') != "undefined") {
+      userFactory.email = $cookieStore.get('email')
       $rootScope.unauthorized = false;
     }
-
-    console.log($cookieStore.get('currentUser'));
 
     if ($rootScope.unauthorized) {
       $location.path('/login');

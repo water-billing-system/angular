@@ -17,7 +17,7 @@ angular.module('playAngularApp')
 				full_name: $scope.full_name
 			};
 
-			$http.post('http://192.168.1.46:9000/app/signup', payload)
+			$http.post('http://192.168.1.46:9000/api/signup', payload)
 				.success(function(data) {
 					console.log(data);
 					if (data.hasOwnProperty('success')) {
