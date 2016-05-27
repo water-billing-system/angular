@@ -132,10 +132,18 @@ angular
   }).run(function($rootScope, $location, $cookieStore, userFactory) {
 
     $rootScope.unauthorized = true;
+    $rootScope.admin = false;
+    $rootScope.user_name = $cookieStore.get('full_name');
+
 
     if (typeof $cookieStore.get('email') != "undefined") {
       userFactory.email = $cookieStore.get('email')
       $rootScope.unauthorized = false;
+
+      if ($cookieStore.get('admin')) {
+        $rootScope.admin = true;
+      }
+
     }
 
     if ($rootScope.unauthorized) {

@@ -19,6 +19,11 @@
 			placeholder="Password" ng-model="password" required>
 		</div>
 		<br>
+		<div>
+			<label for="admin">Admin</label>
+			<select  class="form-control" ng-model="admin" ng-options="option.name for option in adminOptions track by option.value"></select>
+		</div>
+		<br>
 		<button type="submit" class="btn btn-primary form-control">Add User</button>
 	</form>
 </div>

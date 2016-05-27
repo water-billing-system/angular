@@ -10,11 +10,22 @@
 angular.module('playAngularApp')
 	.controller('SignupCtrl', function($scope, $http, $location, userFactory) {
 
+		$scope.adminOptions = [{
+			"name": "No",
+			"value": 0
+		}, {
+			"name": "Yes",
+			"value": 1
+		}];
+
+		$scope.admin = $scope.adminOptions[0];
+
 		$scope.signup = function() {
 			var payload = {
 				email: $scope.email,
 				password: $scope.password,
-				full_name: $scope.full_name
+				full_name: $scope.full_name,
+				admin: $scope.admin.name
 			};
 
 			$http.post('http://192.168.1.46:9000/api/signup', payload)

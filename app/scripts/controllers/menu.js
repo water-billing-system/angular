@@ -18,6 +18,8 @@ angular.module('playAngularApp')
 					if (data.hasOwnProperty('success')) {
 						userFactory.email = '';
 						$rootScope.unauthorized = true;
+						$rootScope.admin = false;
+						$rootScope.user_name = "";
 						ClearCredentials();
 						$location.path('/login');
 					}
@@ -25,7 +27,7 @@ angular.module('playAngularApp')
 		};
 
 		$scope.$watch('user.full_name', function(newVal) {
-			if ($cookieStore.get('currentUser') === '') {
+			if ($cookieStore.get('email') === '') {
 				$scope.isLoggedIn = false;
 			} else {
 				$scope.full_name = newVal;
@@ -38,6 +40,7 @@ angular.module('playAngularApp')
 			$cookieStore.remove('email');
 			$cookieStore.remove('auth');
 			$cookieStore.remove('full_name');
+			$cookieStore.remove('admin');
 		}
 
 

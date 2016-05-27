@@ -47,22 +47,28 @@ angular.module('playAngularApp')
 					console.log(data);
 					if (data.hasOwnProperty('success')) {
 						userFactory.email = data.success.user;
-						userFactory.full_name = data.success.full_name;
+						$rootScope.user_name = data.success.full_name;
 						$cookieStore.put('auth', 1);
 						$rootScope.unauthorized = false;
-						SetCredentials(payload.email, data.success.full_name, data.success.id);
+						if (data.success.admin == true) {
+							$rootScope.admin = true;
+						}
+						SetCredentials(payload.email, data.success.full_name, data.success.id,
+							data.success.admin);
 						$location.path('/');
 					}
 				});
 		};
 
-		function SetCredentials(email, full_name, id) {
+		function SetCredentials(email, full_name, id, admin) {
 
 			console.log(full_name);
 
 			$cookieStore.put('email', email);
 			$cookieStore.put('full_name', full_name);
 			$cookieStore.put('id', id);
+			$cookieStore.put('admin', admin);
+
 		}
 
 	});
