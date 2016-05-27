@@ -9,7 +9,7 @@
  */
 angular.module('playAngularApp')
 	.controller('LoginCtrl', function($scope, userFactory, $location, $http,
-		$rootScope, $cookieStore) {
+		$rootScope, $cookieStore, ngNotify) {
 
 		$scope.isAuthenticated = function() {
 			if (userFactory.email) {
@@ -23,7 +23,6 @@ angular.module('playAngularApp')
 					.success(function(data) {
 						if (data.hasOwnProperty('success')) {
 							userFactory.email = data.success.user;
-
 							$location.path('/');
 						}
 					});
@@ -41,7 +40,7 @@ angular.module('playAngularApp')
 
 			$http.post('http://192.168.1.46:9000/api/login', payload)
 				.error(function(data, status) {
-					console.log("Login Error must be handled.");
+					ngNotify.set("Username or Password is wrong", 'error');
 				})
 				.success(function(data) {
 					console.log(data);
@@ -56,6 +55,7 @@ angular.module('playAngularApp')
 						SetCredentials(payload.email, data.success.full_name, data.success.id,
 							data.success.admin);
 						$location.path('/');
+						ngNotify.set("Welcome", 'success');
 					}
 				});
 		};

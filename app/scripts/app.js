@@ -15,7 +15,8 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngNotify'
   ])
   .config(function($routeProvider) {
     $routeProvider
@@ -112,9 +113,7 @@ angular
         controllerAs: 'payments/:id'
       })
       .when('/debts/:id/:order', {
-        templateUrl: 'views/debts/:id.html',
-        controller: 'DebtsIdCtrl',
-        controllerAs: 'debts/:id'
+        templateUrl: 'views/debts/:id.html'
       })
       .when('/payments/details/:id', {
         templateUrl: 'views/payments/details/:id.html',

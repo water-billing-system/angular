@@ -9,7 +9,7 @@
  */
 angular.module('playAngularApp')
 	.controller('MenuCtrl', function($scope, $http, userFactory, $location,
-		$rootScope, $cookieStore) {
+		$rootScope, $cookieStore, ngNotify) {
 		$scope.user = userFactory;
 
 		$scope.logout = function() {
@@ -22,6 +22,7 @@ angular.module('playAngularApp')
 						$rootScope.user_name = "";
 						ClearCredentials();
 						$location.path('/login');
+						ngNotify.set("See you later", 'info');
 					}
 				});
 		};
