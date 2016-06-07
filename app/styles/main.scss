@@ -10,11 +10,6 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
   border-radius: 0px;
 }
 
-.container {
-  padding-left: 200px;
-  padding-right: 200px;
-}
-
 .customers {
   background: url('../images/customers.png') no-repeat center center;
   background-size: 180px;
@@ -62,6 +57,7 @@ a {
   width: 100%;
 }
 
+
 .node {
   &:last-child {
     padding-top: 50px;
@@ -70,5 +66,13 @@ a {
   .header {
     text-align: center;
     font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .node {
+    &:last-child {
+      padding-top: 0px !important;
+    }
   }
 }
